@@ -1,0 +1,128 @@
+#banner{
+  background-color:#611C35;
+}
+.slogan, .nameofsite{
+  color:white;
+  font-size: 3em;
+  margin-left: 2em;
+}
+@media(max-width:991px){
+  .slogan, .nameofsite{
+    margin-left: 10px;
+  }
+}
+nav{
+  background: #4DA1A9;
+}
+.container{
+  background-color: #D7E8BA;
+}
+.presentation{
+  font-size:1.5em;
+  color:#611C35;
+}
+@media(max-width:991px){
+  .presentation{
+    margin-left: 0 !important;
+  }
+}
+.welcomeTitle{
+    font-weight: bold;
+}
+img{
+  max-width:8em;
+  max-height: 9em;
+  margin-top: -10em;
+  float: right;
+}
+@media(max-width: 991px){
+  img{display: none;}
+}
+.navbar{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+footer{
+  background-color:#611C35;
+  width:100%;
+  left: 0;
+   bottom: 0;
+}
+#connectionForm, #registerForm{
+  position: relative;
+  background-color: lightgrey;
+  border: grey 2px solid;
+  border-radius: 5px;
+    margin: auto;
+  margin-top: 5em;
+  max-width: 25em;
+  padding: 20px;
+  text-align: center;
+}
+form{
+  margin-top: 35px;
+}
+.nameConnect{
+  font-size: 25px;
+}
+.inputContainer{
+  max-width: 100%;
+  margin-bottom: 15px;
+  margin-left: 25%;
+  margin-right: 10%;
+}
+@media(max-width: 991px){
+  .inputContainer{
+    margin: auto;
+  }
+}
+.inputField{
+  width: 100%;
+  padding: 5px;
+  outline: none;
+}
+#errorMessageConnect{
+  text-align: center;
+  font-size: 25px;
+}
+#searchAdsForm{
+  position: relative;
+  background-color: lightgrey;
+  border: grey 2px solid;
+  border-radius: 5px;
+}
+#changePasswordSubmit{
+background-color:#FFA630 !important;
+}
+#accountForm{
+  position: relative;
+  background-color: lightgrey;
+  border: grey 2px solid;
+  border-radius: 5px;
+    margin:5em;
+  max-width: 25em;
+  text-align: right;
+}
+@media(max-width:991px){
+  #accountForm{
+    margin-left: 0;
+    text-align: center;
+  }
+}
+#changePasswordInModal{
+background-color:#FFA630 !important;
+}
+#card{
+  margin-top: 3em;
+}
+.btn{
+background-color:#FFA630;
+max-width:8em;
+margin-left: 80%;
+}
+@media(max-width: 991px){
+  .btn{
+    min-width: 8em;
+  margin-left: 4em;
+  }
+}
