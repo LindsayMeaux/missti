@@ -5,14 +5,7 @@ $password = '';
 $passwordVerify = '';
 $errorList = array();
 $user = new users();
-//Appel AJAX
-//if (isset($_POST['loginVerify'])) {
-//  include_once '../configuration.php';
 
-//$user = new users();
-//$username = htmlspecialchars($_POST['loginVerify']);
-//$check = $user->checkIfUserExist();
-//} else { //Validation du formulaire
 if(isset($_POST['registerSubmit'])){
 
   if (!empty($_POST['username'])) {

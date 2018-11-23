@@ -6,9 +6,9 @@ class city extends database {
  public $name = '';
  public $code = '';
 
-  
 
-     /* method permettant d'afficher la liste des villes et codes postaux
+
+     /* method permettant d'afficher la liste des villes et codes postaux et de les sélectionner par leur id
      */
      public function listCities(){
      $query = database::getInstance()->query('SELECT `id`, `name` , `code` FROM `JFRR11city`');

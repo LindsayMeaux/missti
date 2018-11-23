@@ -7,6 +7,18 @@ class users extends database {
     public $password = '';
     public $email = '';
 
+    /**
+     * Méthode permettant l'enregistrement d'un utilisateur
+     * @return boolean
+     */
+    public function userRegister() {
+        $query = 'INSERT INTO `MTH29users`(`username`, `email`, `password`) VALUES (:username, :email, :password)';
+        $result = database::getInstance()->prepare($query);
+        $result->bindValue(':username', $this->username, PDO::PARAM_STR);
+        $result->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $result->bindValue(':password', $this->password, PDO::PARAM_STR);
+        return $result->execute();
+    }
 
     /**
      * Méthode permettant de faire la connexion de l'utilisateur
@@ -31,22 +43,10 @@ class users extends database {
     }
 
     /**
-     * Méthode permettant l'enregistrement d'un utilisateur
-     * @return boolean
-     */
-    public function userRegister() {
-        $query = 'INSERT INTO `MTH29users`(`username`, `email`, `password`) VALUES (:username, :email, :password)';
-        $result = database::getInstance()->prepare($query);
-        $result->bindValue(':username', $this->username, PDO::PARAM_STR);
-        $result->bindValue(':email', $this->email, PDO::PARAM_STR);
-        $result->bindValue(':password', $this->password, PDO::PARAM_STR);
-        return $result->execute();
-    }
-
-    /**
      *
      * @return type
      */
+     //méthode permettant de vérifier si le nom d'utilisateur est disponible
     public function checkIfUserExist() {
         $state = false;
         $query = 'SELECT COUNT(`id`) AS `count` FROM `MTH29users` WHERE `username` = :username';
@@ -58,7 +58,7 @@ class users extends database {
         }
         return $check;
     }
-
+//méthode permettant à l'utilisateur de modifier son mot de passe avec enregistrement en bdd de son nouveau mot de passe
     public function modifyPassword(){
       $updatePassword = database::getInstance()->prepare('UPDATE `MTH29users` SET `password` = :password WHERE `id` = :id');
       $updatePassword->bindValue(':id', $this->id, PDO::PARAM_INT);

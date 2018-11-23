@@ -31,7 +31,7 @@ include_once 'controller/registerCtrl.php';
 
 
     <div class="form-group has-error">
-        <label for="passwordVerify">Vérification </label>
+        <label for="passwordVerify">Confirmation </label>
         <input type="password" name="passwordVerify" id="passwordVerify"/>
         <?php if(isset($errorList['passwordVerify'])) { ?>
         <p class="text-danger"> <?= $errorList['passwordVerify']; ?> </p>

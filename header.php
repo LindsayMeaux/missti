@@ -24,7 +24,7 @@ include_once 'controller/headerCtrl.php';
       <div id="banner" class="col-sm-12">
         <p class="nameofsite">MISSTI</p>
         <p class="slogan"> D'où qu'il est doudou?</p>
-        <img src="../assets/img/teddy2.png" class="col-sm-2">
+        <img src="../assets/img/teddy2.png" class="col-sm-2" id="logoMissti">
       </div>
     </div>
 <div class="row" >
@@ -58,8 +58,5 @@ include_once 'controller/headerCtrl.php';
                     ?>
                 </li>
               </ul>
-            </div>
         </nav>
-</div>
-</body>
-</html>
+  </div>

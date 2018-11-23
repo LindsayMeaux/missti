@@ -26,7 +26,7 @@ include_once 'controller/connectionCtrl.php';
     </form>
   </div>
 </div>
- 
+
 <?php include_once 'footer.php' ?>
 </body>
 </html>
