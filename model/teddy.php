@@ -1,6 +1,7 @@
 <?php
+// création de la class teddy avec l'extends qui permet de faire le lien avec la database
 class teddy extends database{
-
+//déclaration des paramétres de la classe
 public $id;
 public $particular;
 public $date;
@@ -13,9 +14,9 @@ public $description;
 
       $query = 'INSERT INTO `LNDS12teddy`(`particular`, `date`,`description`, `idUsers`,`idColor`,`idType`,`idMaterial`, `idCity`) '
               . 'VALUES (:particular, :date, :description, :idUsers, :idColor, :idType, :idMaterial, :idCity)';
-
+//appel de la méthode getInstance de la classe database
       $addTeddyAnnounce = database::getInstance()->prepare($query);
-
+//bindvalue : associe une valeur à un paramêtre donc associe le bindvalue à ma colonne
       $addTeddyAnnounce->bindValue(':particular', $this->particular, PDO::PARAM_STR);
       $addTeddyAnnounce->bindValue(':date', $this->date, PDO::PARAM_STR);
       $addTeddyAnnounce->bindValue(':description', $this->description, PDO::PARAM_STR);
@@ -51,7 +52,7 @@ public function searchTeddyAnnounce(){
   //méthode permettant de voir une annonce en particulier
  public function viewOneTeddy(){
    $result = array();
-   $onlyAndOnceTeddy = database::getInstance()->prepare('SELECT `particular`,`description`, `date`,`JMP10color`.`name` AS `color`,`JMP10color`.`id` AS `colorId`, `AYLN09type`.`type`, `AYLN09type`.`id` AS `typeId` , `DNA18material`.`name` AS `material`, `DNA18material`.`id` AS `materialId`,`JFRR11city`.`name`, `JFRR11city`.`id` AS `cityId`,`idUsers`,`CAL0209photo`.`name` AS `photo`
+   $onlyAndOnceTeddy = database::getInstance()->prepare('SELECT `particular`,`description`, DATE_FORMAT(`date`,"%d/%m/%Y") AS `date`,`JMP10color`.`name` AS `color`,`JMP10color`.`id` AS `colorId`, `AYLN09type`.`type`, `AYLN09type`.`id` AS `typeId` , `DNA18material`.`name` AS `material`,`DNA18material`.`id` AS `materialId`,`JFRR11city`.`name`, `JFRR11city`.`id` AS `cityId`,`idUsers`,`CAL0209photo`.`name` AS `photo`
       FROM `LNDS12teddy`
       INNER JOIN `JMP10color` ON `JMP10color`.`id` = `LNDS12teddy`.`idColor`
       INNER JOIN `AYLN09type` ON `AYLN09type`.`id` = `LNDS12teddy`.`idType`
@@ -68,7 +69,7 @@ public function searchTeddyAnnounce(){
  //méthode permettant à un utilisateur de voir ses annonces sur son profil
  public function teddyByUser(){
    $result = array();
-   $addByUser = database::getInstance()->prepare('SELECT `LNDS12teddy`.`id`,`LNDS12teddy`.`idUsers`,`particular`,`description`,`date`,`JMP10color`.`name` AS `color`, `AYLN09type`.`type`,`idMaterial`,`JFRR11city`.`name`,`idUsers`,`CAL0209photo`.`name` AS `photo`
+   $addByUser = database::getInstance()->prepare('SELECT `LNDS12teddy`.`id`,`LNDS12teddy`.`idUsers`,`particular`,`description`, DATE_FORMAT(`date`,"%d/%m/%Y") AS `date`,`JMP10color`.`name` AS `color`, `AYLN09type`.`type`,`idMaterial`,`JFRR11city`.`name`,`idUsers`,`CAL0209photo`.`name` AS `photo`
       FROM `LNDS12teddy`
       INNER JOIN `JMP10color` ON `JMP10color`.`id` = `LNDS12teddy`.`idColor`
       INNER JOIN `AYLN09type` ON `AYLN09type`.`id` = `LNDS12teddy`.`idType`

@@ -2,14 +2,16 @@
 include_once 'header.php';
 include_once 'controller/formUserForUserCtrl.php';
 
-?>
 
+if (isset($_POST['send'])) { ?>
+  <p id="ok">Le message a bien été envoyé</p>
 
-
-<div class="container" id="accountForm">
-  <div class"row">
+<?php } else { ?>
+<div class="container" >
+  <div class"row" id="formUserByUser">
 <form action="#" method="POST">
  <div class="form-group">
+   <h1> Contact </h1>
    <label for="name" class="name" id="name" >Votre e-mail</label>
    <input type="mail" class="form-control" id="name" name="name"/>
  </div>
@@ -19,10 +21,10 @@ include_once 'controller/formUserForUserCtrl.php';
  </div>
  <div class="form-group">
    <label for="message">Votre message : </label>
-   <input name="message" id="message"></input>
+   <textarea name="message" id="message"></textarea>
  </div>
-
- <button type="submit" name = "send" class="send" id="send">Envoyer le message</button>
+ <input type="submit" name = "send" class="btn" id="send" value="Envoyer le message"/>
 </form>
 </div>
 </div>
+<?php } ?>

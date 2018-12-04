@@ -29,7 +29,6 @@ include_once 'controller/registerCtrl.php';
       <?php } ?>
       </div>
 
-
     <div class="form-group has-error">
         <label for="passwordVerify">Confirmation </label>
         <input type="password" name="passwordVerify" id="passwordVerify"/>

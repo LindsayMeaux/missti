@@ -1,5 +1,5 @@
 <?php
-//j'instancie un nouvel objet $city en relation avec ma class city()
+//j'instancie un nouvel objet $city
 $city = new city();
 //j'appelle ma méthode listCities() pour afficher la liste des villes
 $citiesList = $city->listCities();
@@ -22,13 +22,13 @@ $description = '';
 $idUsers = '';
 $lastId = 0 ;
 
-
-
 if(isset($_POST['submit'])){
+  //si le champs n'est pas vide
   if (!empty($_POST['cities'])) {
+    //alors on applique le HTMLspecialchars et on le récupère dans l'objet
     $teddy->idCity = htmlspecialchars($_POST['cities']);
-    //  $formError['cities'] = 'la ville que vous avez choisie n\'existe pas';
   } else {
+    //sinon un message d'erreur s'affiche
     $formError['cities'] = 'la ville que vous avez choisie n\'est pas valide';
   }
 
@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
   } else {
     $formError['dateApp'] = 'la date est invalide';
   }
-
+//début de la transaction
   try{
     database::getInstance()->beginTransaction();
 
@@ -89,25 +89,29 @@ if(isset($_POST['submit'])){
           //move_uploaded_file : fonction php déplaçant un fichier téléchargé
           if (move_uploaded_file($start_path, $end_path)) {
             //insertion en base du nom
-
             $photo->name = $img['name'];
           }
         }
       }}
       //si mon tableau d'erreurs est vide
       if(count($formError)==0){
-        //j'attribue l'id de mon utilisateur stocker dans la session à mon objet idUsers
+        //j'attribue l'id de mon utilisateur qui est stocké dans la session, à mon objet $teddy au paramètre idUsers
         $teddy->idUsers = $_SESSION['id'];
+        //j'éxècute la méthode d'ajout d'annonce
         $teddy->addTeddyAnnounce();
+        //j'éxècute la méthode lastInsertId , qui récupère le dernier Id entré en base
         $lastId = database::lastInsertId();
         $photo->idTeddy = $lastId;
         $photo->uploadFile();
       }
+      // la méthode uploadFile() est codée dans le modéle photo
+      //si les deux méthodes s'éxecutent alors on commit
       database::getInstance()->commit();
     } catch (Exception $ex) {
+      //sinon la première méthode s'annule et rien ne va en bdd
       database::getInstance()->rollback();
       die('Erreur : ' . $ex->getMessage());
     }
   }
 
-?>
+  ?>

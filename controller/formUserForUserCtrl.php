@@ -2,14 +2,17 @@
 $subject = '';
 $name = '';
 $message = '';
-
+$contact = '';
+$email = '';
+$teddy = NEW teddy();
+$user = NEW users();
 // declaration des regex
 $regexText = '/^[0-9a-zA-Zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ\-\ \.\,\?\:\!\']+$/';
 // declaration du tableaux d'erreur
 $formError = array();
 
+//si le tableau d'erreur est vide et que le post existe alors on fait les vérifications
 if (count($formError) == 0 && isset($_POST['send'])) {
-
 
 // verification de l'email si existante
 if (isset($_POST['name'])) {
@@ -28,7 +31,7 @@ if (isset($_POST['name'])) {
 }
 
 if (isset($_POST['subject'])) {
-    // Déclaration de la variable $subjet avec HTMLspecialchars afin d'interpréter les balises HTML
+    // Déclaration de la variable $subject avec HTMLspecialchars afin d'interpréter les balises HTML
     $subject = htmlspecialchars($_POST['subject']);
     // test de la regex si valide
     if (!preg_match($regexText, $subject)) {
@@ -38,7 +41,7 @@ if (isset($_POST['subject'])) {
 }
 
 if (isset($_POST['message'])) {
-    // Déclaration de la variable $subjet avec HTMLspecialchars afin d'interpréter les balises HTML
+    // Déclaration de la variable $message avec HTMLspecialchars afin d'interpréter les balises HTML
     $message = htmlspecialchars($_POST['message']);
     // test de la regex si valide
     if (!preg_match($regexText, $message)) {
@@ -51,7 +54,8 @@ if (isset($_POST['message'])) {
         $formError['message'] = 'Message obligatoire';
     }
 }
+  $user->id = $_GET['id'];
+  $contact = $user->selectMailForMessage();
 
-    mail('lindsay.meaux@gmail.com',$subject, $message, $name );
-
+    mail($contact,$subject, $message, $name );
 }

@@ -65,5 +65,35 @@ class users extends database {
       $updatePassword->bindValue(':password', $this->password, PDO::PARAM_STR);
       return $updatePassword->execute();
     }
+    //méthode permettant à d'afficher les informations de l'utilisateur
+    public function viewOneUser(){
+      $result = array();
+      $informationsByUser = database::getInstance()->prepare('SELECT `id`,`username`,`email`
+      FROM `MTH29users`
+      WHERE `id` = :id ');
+      $informationsByUser->bindValue(':id', $this->id, PDO::PARAM_INT);
 
+      if($informationsByUser->execute()){
+        $result = $informationsByUser->fetch(PDO::FETCH_OBJ);
+      }
+        return $result;
+    }
+
+    //méthode permettant à l'utilisateur de supprimer son compte ainsi que les annonces qu'il a posté
+    public function deleteUser(){
+
+           $deleteUser = database::getInstance()->prepare('DELETE FROM `MTH29users` WHERE `id`= :id');
+           $deleteUser->bindValue(':id', $this->id, PDO:: PARAM_INT);
+           return $deleteUser->execute();
+       }
+//méthode permettant à un utilisateur de contacter par mail un autre utilisateur
+       public function selectMailForMessage(){
+$mailingUser = database::getInstance()->prepare( 'SELECT `us`.`email` FROM `MTH29users` AS `us` LEFT JOIN `LNDS12teddy` AS `t` ON `t`.`idUsers` = `us`.`id` WHERE `t`.`id` = :id');
+$mailingUser->bindValue(':id', $this->id,PDO::PARAM_INT);
+if($mailingUser->execute()){
+$mail = $mailingUser->fetch(PDO::FETCH_COLUMN);
+}
+return $mail ;
+
+    }
 }

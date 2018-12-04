@@ -8,7 +8,7 @@ include_once 'controller/connectionCtrl.php';
   <div class="row">
     <form action="#" method="POST">
       <div class="inputContainer">
-        <p class="nameConnect">Connexion </p>
+        <p class="nameConnect">Se connecter</p>
         <label for="login">Pseudonyme</label>
         <input type="text" name="login" id="login" class="inputField"/>
         <?php if(isset($errorList['login'])) { ?>
@@ -23,10 +23,11 @@ include_once 'controller/connectionCtrl.php';
         <?php } ?>
       </div>
       <input type="submit" value="Me connecter" name="loginSubmit" id="loginSubmit" />
+      <?php if(isset($errorList['noConnect'])) { ?>
+      <p class="text-danger" id="errorMessageConnect"><?= $errorList['noConnect'] ?></p>
+      <?php } ?>
     </form>
   </div>
 </div>
-
-<?php include_once 'footer.php' ?>
 </body>
 </html>

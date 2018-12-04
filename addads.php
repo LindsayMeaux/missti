@@ -4,16 +4,29 @@ include_once 'controller/addadsCtrl.php';
 ?>
 <?php
 
-
+//si les données sont valides , on affiche le message de réussite
 if (isset($_POST['submit']) && (count($formError) === 0)) { ?>
-  <p id="ok">Les données ont été enregistrées</p>
-
+  <p id="ok">Votre annonce a bien été postée</p>
+  <!-- sinon on affiche le formulaire à compléter
+-->
 <?php } else { ?>
   <div class="container-fluid">
     <div class="row">
-      <div id="formBox" class="offset-2 col-8 offset-2">
+      <div id="formBox" class="offset-1 col-10 offset-1">
         <form  enctype="multipart/form-data" action="#" method="POST">
           <div class="form-group">
+            <h1> Informations sur le doudou trouvé</h1>
+            <label for="dateApp">Date à laquelle le doudou a été trouvé:</label>
+            <input class="form-control" id="dateApp" type="date" name="dateApp"/>
+            <?php if (isset($formError['dateApp'])) { ?>
+              <p class="text-danger"><?= isset($formError['dateApp']) ? $formError['dateApp'] : '' ?></p>
+            <?php } ?>
+            <select name="cities" class="custom-select" id="inputGroupSelect">
+              <option selected disabled>veuillez sélectionner une ville---</option>
+              <?php foreach ($citiesList as $citiesDetail) { ?>
+                <option value="<?= $citiesDetail->id ?>"><?= $citiesDetail->name . ' ' . $citiesDetail->code ?></option>
+              <?php } ?>
+            </select>
             <select name="type" id="type">
               <option selected disabled>Choisissez le type</option>
               <?php foreach ($typeList as $typeDetail) { ?>
@@ -34,27 +47,12 @@ if (isset($_POST['submit']) && (count($formError) === 0)) { ?>
                 <option value="<?= $materialDetail->id ?>"><?= $materialDetail->name ?></option>
               <?php } ?>
             </select>
-
-            <label for="dateApp">Date à laquelle le doudou a été trouvé:</label>
-            <input class="form-control" id="dateApp" type="date" name="dateApp"/>
-            <?php if (isset($formError['dateApp'])) { ?>
-              <p class="text-danger"><?= isset($formError['dateApp']) ? $formError['dateApp'] : '' ?></p>
-            <?php } ?>
-
-            <input class="" id="particular" type="text" name="particular" placeholder="Un signe particulier?"/>
-
-            <select name="cities" class="custom-select" id="inputGroupSelect">
-              <option selected disabled>veuillez sélectionner une ville---</option>
-              <?php foreach ($citiesList as $citiesDetail) { ?>
-                <option value="<?= $citiesDetail->id ?>"><?= $citiesDetail->name . ' ' . $citiesDetail->code ?></option>
-              <?php } ?>
-            </select>
-
           </div>
           <div>
-            <label name="description"></label>
+            <label name="description">Description</label>
             <textarea name="description"></textarea>
           </div>
+          <input id="particular" type="text" name="particular" placeholder="Un signe particulier?"/>
 
           <input type="file" name="file" value="450000" />
           <?php if (isset($formError['file'])) { ?> <p class="text-danger"><?= $formError['file']; ?></p> <?php } ?>
@@ -66,3 +64,5 @@ if (isset($_POST['submit']) && (count($formError) === 0)) { ?>
     </div>
   </div>
 <?php } ?>
+</body>
+</html>

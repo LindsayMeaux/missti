@@ -27,3 +27,20 @@ $teddy = NEW teddy();
 //idUsers de la table teddy est égal à l'id de la session en cours
 $teddy->idUsers = $_SESSION['id'];
 $addByUser = $teddy->teddyByUser();
+
+$user = NEW users();
+$user->id = $_SESSION['id'];
+$informationsByUser = $user->viewOneUser();
+
+if (isset($_POST['deleteAccount'])) {
+
+    $deleteUser = $user->deleteUser();
+    if ($user->deleteUser()) {
+      //on détruit les variables de session ainsi que la session
+      // lors du delete et on redirige sur l index
+      session_unset();
+      session_destroy();
+      header('Location:index.php?messageDelete= Vous avez bien supprimé votre compte');
+       exit;
+     }
+   }

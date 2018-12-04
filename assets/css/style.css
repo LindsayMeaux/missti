@@ -14,6 +14,9 @@
 nav{
   background: #4DA1A9;
 }
+body {
+    background-color: #D7E8BA;
+}
 .container{
   background-color: #D7E8BA;
 }
@@ -21,13 +24,27 @@ nav{
   font-size:1.5em;
   color:#611C35;
 }
-@media(max-width:991px){
-  .presentation{
-    margin-left: 0 !important;
-  }
-}
 .welcomeTitle{
     font-weight: bold;
+    font-size: 2em;
+}
+@media(max-width: 991px){
+  .welcomeTitle{
+    font-size: 1em;
+  }
+}
+.descriptionSite{
+  background-color: lightgrey;
+  margin-top: 2em;
+  border: 2px solid #8E3557;
+  border-radius: 15px;
+  color: #046380;
+  padding: 20px;
+}
+@media(max-width: 991px){
+  .descriptionSite{
+    font-size: 0.7em;
+  }
 }
 img{
   max-width:8em;
@@ -44,12 +61,7 @@ img{
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-footer{
-  background-color:#611C35;
-  width:100%;
-  left: 0;
-   bottom: 0;
-}
+
 #connectionForm, #registerForm{
   position: relative;
   background-color: lightgrey;
@@ -95,11 +107,42 @@ form{
 }
 #changePasswordSubmit{
 background-color:#FFA630 !important;
+max-width: 100%;
+margin-top: 5px;
+}
+@media(max-width: 991px){
+  #changePasswordSubmit{
+    max-width: 100%;
+  }
+}
+#deleteAccount{
+  max-width: 100%;
+  margin-top: 5px;
+}
+#accountFormUser{
+  position: relative;
+  background-color: lightgrey;
+  border: #8E3557 2px solid;
+  border-radius: 5px;
+    margin:5em;
+  max-width: 25em;
+padding: 10px;
+height: 560px;
+}
+@media(max-width:991px;){
+  #accountFormUser{
+    width: 300px;
+    margin-left: -5px;
+
+  }
+}
+#accountFormUser{
+margin-left: 0;
 }
 #accountForm{
   position: relative;
   background-color: lightgrey;
-  border: grey 2px solid;
+  border: #8E3557 2px solid;
   border-radius: 5px;
     margin:5em;
   max-width: 25em;
@@ -111,9 +154,9 @@ background-color:#FFA630 !important;
     text-align: center;
   }
 }
-#changePasswordInModal{
-background-color:#FFA630 !important;
-max-width: 15em;
+.modifiedPsw{
+  text-align: center;
+  font-size: 20px;
 }
 #card{
   margin-top: 3em;
@@ -121,14 +164,10 @@ border-radius: 10px;
 }
 .btn{
 background-color:#FFA630;
-max-width:8em;
-margin-left: 40%;
-
 }
 @media(max-width: 991px){
   .btn{
     min-width: 8em;
-  margin-left: 4em;
   }
 }
 .photoAdds{
@@ -136,9 +175,10 @@ margin-left: 40%;
   padding-top: 1.5em;
 }
 .photoByAdd{
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   margin-top: 3em;
+
 }
 h2{
   font-size:15px;
@@ -149,6 +189,9 @@ h1{
 }
 #deleteAdd{
   background-color: red !important ;
+  padding-left: 5px;
+  max-width: 100%;
+  margin-left: 75px;
 }
 select{
   margin-top: 1em;
@@ -161,7 +204,7 @@ select{
 #type
 {
   margin-top: 2em;
-  margin-left: 5em;
+
 }
 @media(max-width:991px){
   #type{
@@ -170,7 +213,6 @@ select{
 }
  #material{
    margin-top: 1em;
-   margin-left: 4em;
  }
  @media(max-width:991px){
    #material{
@@ -179,7 +221,7 @@ select{
  }
   #color{
   margin-top: 1em;
-  margin-left: 4.5em;
+
 }
 @media(max-width:991px){
   #color{
@@ -191,13 +233,116 @@ select{
   margin-bottom: 1em;
   margin-left: 5em;
   background-color: #FFA630;
+
 }
 
-#formBox{
+#formBox, #choiceBox{
   background-color: lightgrey;
   margin-top: 2em;
   border: 2px solid #8E3557;
   border-radius: 15px;
 color: #046380;
+}
+#choiceBox{
+  margin-left: 130px;
+}
+@media(max-width:991px){
+  #choiceBox{
+    margin-left: 0;
+  }
+}
 
+.viewOneTeddy{
+  background-color: lightgrey;
+  margin-top: 2em;
+  border: 2px solid #8E3557;
+  border-radius: 15px;
+color: #046380;
+padding: 5px;
+margin-left: 100px;
+}
+@media(max-width:991px){
+  .viewOneTeddy{
+    margin-left: 0;
+  }
+}
+#usernameInformation{
+  text-align: center;
+}
+.card{
+  width: 70%;
+  margin-top: 5em !important;
+}
+#buttonForViewAdd{
+  margin-left: 120px;
+}
+@media(max-width:991px){
+  #buttonForViewAdd{
+    margin-left: 30px;
+  }
+}
+#formUserByUser{
+  background-color: lightgrey;
+  margin-top: 2em;
+  border: 2px solid #8E3557;
+  border-radius: 15px;
+color: #046380;
+padding: 15px;
+}
+@media(max-width:991px){
+  #send{
+    margin-left: 25px;
+  }
+}
+#formUserByUser textarea{
+  width:100%;
+}
+.photoByAdd{
+border: 2px solid #8E3557;
+}
+
+.noSelect{
+  -webkit-user-select: none;
+   /* Chrome all / Safari all */
+   -moz-user-select: none;
+   /* Firefox all */
+   -ms-user-select: none;
+   /* IE 10+ */
+   user-select: none;
+   /* Likely future */
+}
+#ok{
+  text-align: center;
+  margin-top: 50px;
+  font-size:20px;
+}
+.nav-link{
+  color:#1e2366!important;
+}
+#updateAddByUserBtn {
+  padding-left: 5px;
+    max-width: 100%;
+}
+#viewAddByUserBtn {
+  padding-left: 5px;
+  margin-left: 5px;
+    max-width: 100%;
+}
+@media (max-width:991px) {
+  #deleteAdd{
+    padding-left: 5px;
+    max-width: 100%;
+    margin-left: 0px;
+  }
+  #viewAddByUserBtn {
+    padding-left: 5px;
+    margin-left: 14px;
+      max-width: 100%;
+  }
+  #updateAddByUserBtn {
+  font-size : 14px;
+  }
+  #infoAdd {
+    margin-left: -5px;
+  }
 }

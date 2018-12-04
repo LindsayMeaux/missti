@@ -15,10 +15,10 @@ public function uploadFile() {
 
         return $result->execute();
     }
-public function modifiedFile(){
-
-$photoModifiedByUser = database::getInstance()->prepare('UPDATE `CAL0209photo` SET `name` = :name WHERE `CAL0209photo`.`idTeddy` = :idTeddy');
-$photoModifiedByUser->bindValue(':name', $this->name, PDO::PARAM_STR);
-return $photoModifiedByUser->execute();
-}
+//public function modifiedFile(){
+//méthode pouvant permettre de modifier la photo
+//$photoModifiedByUser = database::getInstance()->prepare('UPDATE `CAL0209photo` SET `name` = :name WHERE `CAL0209photo`.`idTeddy` = :idTeddy');
+//$photoModifiedByUser->bindValue(':name', $this->name, PDO::PARAM_STR);
+//return $photoModifiedByUser->execute();
+//}
 }

@@ -32,6 +32,8 @@ if(isset($_POST['loginSubmit'])){
         // l'utilisateur est redirigé vers la page d'affichage des annonces
         header('location:searchads.php');
         exit;
+      }else{
+        $errorList['noConnect'] = 'Le mot de passe ou le pseudonyme est incorrecte';
       }
     }
   }

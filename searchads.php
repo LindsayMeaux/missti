@@ -17,21 +17,21 @@ include_once 'controller/addadsCtrl.php';
             <?php } ?>
           </select>
         </div>
-        <div id="formBox" class=" form-group offset-1 col-md-4 xs-12">
-          <select name="type" id="type">
+        <div id="choiceBox" class=" form-group col-md-4 xs-12">
+          <select name="type" id="type" class="custom-select">
             <option selected disabled>Choisissez le type</option>
             <?php foreach ($typeList as $typeDetail) { ?>
               <option value="<?= $typeDetail->id ?>"><?= $typeDetail->type ?></option>
             <?php } ?>
 
           </select>
-          <select name="color" id="color">
+          <select name="color" id="color" class="custom-select">
             <option selected disabled>Choisissez la couleur</option>
             <?php foreach ($colorList as $colorDetail) { ?>
               <option value="<?= $colorDetail->id ?>"><?= $colorDetail->name ?></option>
             <?php } ?>
           </select>
-          <select name="material" id="material">
+          <select name="material" id="material" class="custom-select">
             <option selected disabled>Choisissez une matière</option>
             <?php foreach ($materialList as $materialDetail) { ?>
               <option value="<?= $materialDetail->id ?>"><?= $materialDetail->name ?></option>
@@ -47,13 +47,15 @@ include_once 'controller/addadsCtrl.php';
   <div class="row">
     <?php foreach ($teddyAnnounce as $teddyDetail){?>
 
-      <div class="card col-md-4 lg-4" id="card" >
+      <div class="card offset-2 col-md-4 lg-4" id="card" >
         <div class="row">
           <div class="col-md-2"> <img class="photoAdds" src="files/<?= $teddyDetail->photo ?> "/></div>
-          <div class="card-body col-md-4 offset-2"> <p><?=$teddyDetail->name ?></p> <p> <?=$teddyDetail->particular ?></p> <p><?=$teddyDetail->type ?></p> <p><?=$teddyDetail->color ?> </p></div>
+          <div class="card-body col-md-4 offset-2"> <p><strong>Ville :</strong><?=$teddyDetail->name ?></p> <strong> Type :</strong> <?=$teddyDetail->type ?></p> <p> <strong> Couleur : </strong> <?=$teddyDetail->color ?> </p> <p> <strong>Détail :</strong> <?=$teddyDetail->particular ?></p> <p></div>
         <a href="onceTeddyAnnounce.php?id=<?=$teddyDetail->id ?>" class="btn col-xs-11" id="buttonForViewAdd">Voir l'annonce</a>
 
   </div>
     </div>
     <?php }?>
 </div>
+</body>
+</html>
