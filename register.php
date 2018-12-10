@@ -42,3 +42,5 @@ include_once 'controller/registerCtrl.php';
 </form>
 </div>
 </div>
+</body>
+</html>

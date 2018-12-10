@@ -28,3 +28,5 @@ include_once 'controller/onceTeddyAnnounceCtrl.php';
     </div>
   </div>
 </div>
+</body>
+</html>

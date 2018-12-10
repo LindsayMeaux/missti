@@ -96,7 +96,7 @@ public function searchTeddyAnnounce(){
 //méthode permettant à un utilisateur de modifier ses annonces
 public function modifyAddByUser(){
 
-$addModifiedByUser = database::getInstance()->prepare('UPDATE `LNDS12teddy` SET `date` = :modifDate ,`particular` = :particular, `description` = :description , `idType` = :idType, `idColor` = :idColor, `idMaterial` = :idMaterial, `idCity` = :idCity
+$addModifiedByUser = database::getInstance()->prepare('UPDATE `LNDS12teddy` SET `particular` = :particular, `description` = :description , `idType` = :idType, `idColor` = :idColor, `idMaterial` = :idMaterial, `idCity` = :idCity
 WHERE `id` = :id');
 $addModifiedByUser->bindValue(':id', $this->id, PDO::PARAM_INT);
 $addModifiedByUser->bindValue(':particular', $this->particular, PDO::PARAM_STR);
@@ -105,7 +105,7 @@ $addModifiedByUser->bindValue(':idColor', $this->idColor, PDO::PARAM_INT);
 $addModifiedByUser->bindValue(':idType', $this->idType, PDO::PARAM_INT);
 $addModifiedByUser->bindValue(':idMaterial', $this->idMaterial, PDO::PARAM_INT);
 $addModifiedByUser->bindValue(':idCity', $this->idCity, PDO::PARAM_INT);
-$addModifiedByUser->bindValue(':modifDate', $this->date, PDO::PARAM_STR);
+
 
 return $addModifiedByUser->execute();
 }

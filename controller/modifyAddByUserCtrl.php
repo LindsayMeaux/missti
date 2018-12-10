@@ -19,19 +19,19 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
   if (isset($_POST['modifiedAdd'])) {
     if (!empty($_POST['cities'])) {
-      $teddy->idCity = is_numeric($_POST['cities']);
+      $teddy->idCity = ($_POST['cities']);
     } else {
       $formError['cities'] = 'la ville que vous avez choisie n\'est pas valide';
     }
 
     if (!empty($_POST['color'])) {
-      $teddy->idColor = is_numeric($_POST['color']);
+      $teddy->idColor = ($_POST['color']);
     } else {
       $formError['color'] = 'la couleur n\'est pas valide';
     }
 
     if (!empty($_POST['material'])) {
-      $teddy->idMaterial = is_numeric($_POST['material']);
+      $teddy->idMaterial = ($_POST['material']);
     } else {
       $formError['material'] = 'la matière n\'est pas valide';
     }
@@ -49,7 +49,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 
     if (!empty($_POST['type'])) {
-      $teddy->idType = is_numeric($_POST['type']);
+      $teddy->idType = ($_POST['type']);
     } else {
       $formError['type'] = 'le type n\'est pas valide';
     }

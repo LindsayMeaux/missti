@@ -1,5 +1,8 @@
 <?php include_once 'header.php' ?>
   <div class="container">
+    <?php if(isset($_GET['messageDelete'])){
+      echo $_GET['messageDelete'];
+    } ?>
       <div class="row">
         <div class="col-xs-12 col-lg-4 offset-4">
           <div class="presentation">

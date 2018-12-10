@@ -17,7 +17,7 @@ if (isset($_POST['modifiedAdd']) && (count($formError) === 0)) { ?>
               <?php foreach ($typeList as $typeDetail) { ?>
                 <!-- si l'id de la première selection de l'utilisateur est présent dans le select alors il devient "active" sinon il ne faut rien afficher
               -->
-              <option value="<?= $typeDetail->id ?>" <?= $typeDetail->id == $onlyAndOnceTeddy->typeId ? 'active' : ''; ?> ><?= $typeDetail->type ?></option>
+              <option value="<?= $typeDetail->id ?>" <?= $typeDetail->id == $onlyAndOnceTeddy->typeId ? 'selected' : '' ?> ><?= $typeDetail->type ?></option>
             <?php } ?>
           </select>
 
@@ -25,29 +25,26 @@ if (isset($_POST['modifiedAdd']) && (count($formError) === 0)) { ?>
           <select name="color" >
 
             <?php foreach ($colorList as $colorDetail) { ?>
-              <option value="<?= $colorDetail->id ?>" <?= $colorDetail->id == $onlyAndOnceTeddy->colorId ? 'active': ''; ?>><?= $colorDetail->name ?></option>
+              <option value="<?= $colorDetail->id ?>" <?= $colorDetail->id == $onlyAndOnceTeddy->colorId ? 'selected': '' ?>><?= $colorDetail->name ?></option>
             <?php } ?>
           </select>
 
   <label for="material">Veuillez sélectionner une matière :</label>
           <select name="material" id="material">
             <?php foreach ($materialList as $materialDetail) { ?>
-              <option value="<?= $materialDetail->id ?>"<?= $materialDetail->id == $onlyAndOnceTeddy->materialId ? 'active': ''; ?>><?= $materialDetail->name ?></option>
+              <option value="<?= $materialDetail->id ?>"<?= $materialDetail->id == $onlyAndOnceTeddy->materialId ? 'selected': '' ?>><?= $materialDetail->name ?></option>
             <?php } ?>
           </select>
 
 <br>
           <label for="dateApp">Date à laquelle le doudou a été trouvé:</label>
-          <input class="form-control" id="date" type="text" name="dateApp" value="<?= $onlyAndOnceTeddy->date?>"/>
-          <?php if (isset($formError['dateApp'])) { ?>
-            <p class="text-danger"><?= isset($formError['dateApp']) ? $formError['dateApp'] : '' ?></p>
-          <?php } ?>
+          <input class="form-control" id="dateApp" type="text" name="dateApp" value="<?= $onlyAndOnceTeddy->date?>"/>
 
         </div>
         <label for="cities">Ville où le doudou a été trouvé:</label>
         <select name="cities" class="custom-select" id="cities">
           <?php foreach ($citiesList as $citiesDetail) { ?>
-            <option value="<?= $citiesDetail->id ?>" <?= $citiesDetail->id == $onlyAndOnceTeddy->cityId ? 'active': ''; ?> ><?= $citiesDetail->name . ' ' . $citiesDetail->code ?></option>
+            <option value="<?= $citiesDetail->id ?>" <?= $citiesDetail->id == $onlyAndOnceTeddy->cityId ? 'selected': '' ?> ><?= $citiesDetail->name . ' ' . $citiesDetail->code ?></option>
           <?php } ?>
         </select>
         <div>
@@ -67,3 +64,5 @@ if (isset($_POST['modifiedAdd']) && (count($formError) === 0)) { ?>
   </div>
 </div>
 <?php } ?>
+</body>
+</html>

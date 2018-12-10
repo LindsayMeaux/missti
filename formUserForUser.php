@@ -28,3 +28,5 @@ if (isset($_POST['send'])) { ?>
 </div>
 </div>
 <?php } ?>
+</body>
+</html>

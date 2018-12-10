@@ -116,7 +116,7 @@ margin-top: 5px;
   }
 }
 #deleteAccount{
-  max-width: 100%;
+  max-width: 100% ;
   margin-top: 5px;
 }
 #accountFormUser{
@@ -345,4 +345,8 @@ border: 2px solid #8E3557;
   #infoAdd {
     margin-left: -5px;
   }
+}
+#openModal{
+  max-width: 100% ;
+  margin-top: 5px;
 }
